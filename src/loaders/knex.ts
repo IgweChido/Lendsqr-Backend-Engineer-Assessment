@@ -1,12 +1,13 @@
+import config from "../config";
 module.exports = {
   development: {
     client: "mysql2",
     connection: {
-      host: "127.0.0.1",
-      port: 3306,
-      user: "Chido Papi",
-      password: "Acecity$12345678",
-      database: "lendsqr_assessment",
+      host: config.databaseHost,
+      port: config.databasePort,
+      user: config.databaseUser,
+      password: config.databasePassword,
+      database: config.databaseName,
     },
   },
 };
