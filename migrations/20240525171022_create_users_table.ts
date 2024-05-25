@@ -1,0 +1,15 @@
+exports.up = function (knex) {
+  return knex.schema.createTable("users", function (table) {
+    table.increments();
+    table.string("firstname");
+    table.string("lastname");
+    table.string("phone");
+    table.string("email");
+    table.integer("password");
+    table.timestamps();
+  });
+};
+
+exports.down = function (knex) {
+  return knex.schema.dropTable("users");
+};
