@@ -4,7 +4,10 @@
     "esModuleInterop": true,
     "target": "es6",
     "moduleResolution": "node",
+    // "strict": true,
     "sourceMap": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
     "outDir": "dist",
     "paths": {
       "../../*": ["./src/*"]
