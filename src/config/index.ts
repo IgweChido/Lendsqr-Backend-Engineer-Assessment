@@ -12,4 +12,7 @@ export default {
   databaseName: process.env.DB_NAME,
   databaseUser: process.env.DB_USER,
   databaseHost: process.env.DB_HOST,
+
+  jwtSecret: process.env.JWT_SECRET,
+  jwtAlgorithm: process.env.JWT_ALGO,
 };
