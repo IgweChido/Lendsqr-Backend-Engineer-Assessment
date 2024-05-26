@@ -1,7 +1,7 @@
 const knex = require("knex");
 const knexConfig = require("../../knexfile");
 
-const db = knex(knexConfig);
+export const db = knex(knexConfig);
 export const dbLoader = () => {
   let status;
   // test tb connection
@@ -9,7 +9,6 @@ export const dbLoader = () => {
     .then(() => {
       console.log("Connection successful");
       status = "Connection successful";
-      process.exit(0);
     })
     .catch((err) => {
       console.error("Connection failed:", err);
