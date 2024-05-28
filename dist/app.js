@@ -34,6 +34,9 @@ function startServer() {
             console.log("error", err);
             process.exit(1);
         });
+        app.get("/", (req, res) => {
+            res.send("App is running");
+        });
     });
 }
 startServer();

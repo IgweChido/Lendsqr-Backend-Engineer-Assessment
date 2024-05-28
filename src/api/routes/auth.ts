@@ -40,4 +40,19 @@ export default (app: Router) => {
       }
     }
   );
+
+  route.get(
+    "/get-user/:id",
+
+    async (req: Request, res: Response, next: NextFunction) => {
+      try {
+        const id = req.params.id;
+        const authController = new AuthController();
+        const get_user = await authController.getUser(id);
+        res.status(200).json(get_user);
+      } catch (err) {
+        return next(err);
+      }
+    }
+  );
 };

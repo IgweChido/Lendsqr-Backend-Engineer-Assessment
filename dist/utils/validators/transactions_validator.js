@@ -4,7 +4,7 @@ exports.validate_transactions = void 0;
 const index_1 = require("./index");
 const validate_transactions = (req, res, next) => {
     const validationRule = {
-        amount: "required|number|min:1",
+        amount: "required|integer|min:1",
     };
     (0, index_1.validator)(req.body, validationRule, {}, (err, status) => {
         if (!status) {

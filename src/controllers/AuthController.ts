@@ -109,4 +109,30 @@ export default class AuthController {
       throw new Error(e);
     }
   }
+
+  public async getUser(user_id) {
+    try {
+      // check whether user exists with email
+      const userExists = {
+        id: 16,
+        firstname: "ifechukwusss",
+        lastname: "amaeze",
+        phone: "07037248310",
+        email: "amazing@yahoo.com",
+        password:
+          "$argon2id$v=19$m=65536,t=3,p=4$T4A5vEEcDlbtNXEyO+/t6g$TWXwYkv1ABMG0nYkR1b3wMGyIs6GYULi4p+qFLAQy/0",
+        created_at: "2024-05-26T20:40:34.000Z",
+        updated_at: "2024-05-26T20:40:34.000Z",
+      };
+
+      return {
+        status: "success",
+        data: userExists,
+        message: "user fetched successfully",
+        code: 200,
+      };
+    } catch (e) {
+      throw new Error(e);
+    }
+  }
 }

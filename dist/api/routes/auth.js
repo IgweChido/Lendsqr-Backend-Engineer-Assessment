@@ -40,5 +40,16 @@ exports.default = (app) => {
             return next(err);
         }
     }));
+    route.get("/get-user/:id", (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+        try {
+            const id = req.params.id;
+            const authController = new AuthController_1.default();
+            const get_user = yield authController.getUser(id);
+            res.status(200).json(get_user);
+        }
+        catch (err) {
+            return next(err);
+        }
+    }));
 };
 //# sourceMappingURL=auth.js.map
