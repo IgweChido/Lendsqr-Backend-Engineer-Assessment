@@ -7,7 +7,7 @@ export async function generateJwtToken(user) {
   exp.setDate(today.getDate() + 60);
   return jwt.sign(
     {
-      _id: user._id,
+      id: user.id,
       email: user.email,
       firstname: user.firstname,
       lastname: user.lastname,

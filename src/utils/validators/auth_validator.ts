@@ -18,7 +18,7 @@ export const validate_create_account = (req, res, next) => {
   const validationRule = {
     firstname: "required|string",
     lastname: "required|string",
-    email: "required|string|email",
+    email: "required|string",
     phone: "required|string",
     password: "required|string|min:6",
   };

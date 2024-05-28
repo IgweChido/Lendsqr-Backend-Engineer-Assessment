@@ -1,11 +1,34 @@
 import argon2 from "argon2";
 import { db } from "../loaders/knex";
 import { generateJwtToken } from "../utils/generateJwtToken";
+import config from "../config";
+import { checkKarmaForCustomer } from "../utils/checkKarmaForCustomers";
 export default class AuthController {
   constructor() {}
 
   public async createAccount(account_details) {
     try {
+      // Check karma blacklist
+      let karma;
+      await checkKarmaForCustomer(
+        config.karmaUrl + account_details.email,
+        config.authToken
+      )
+        .then((data) => {
+          console.log("Fetched data:", data?.data);
+          // throw new Error("User cannot be Onboarded");
+          karma = data?.data;
+        })
+        .catch((error) => {
+          console.error("Error:", error?.response?.data);
+        });
+
+      console.log("karma", karma);
+
+      if (karma) {
+        throw new Error("User cannot be Onboarded");
+      }
+
       // encrypt user password
       const hashedPassword = await argon2.hash(account_details.password);
 
@@ -25,12 +48,23 @@ export default class AuthController {
       const user = await db("users").where("id", insertedId).first();
       console.log("Inserted user:", user);
 
+      // add wallet information for the user
+      const wallet_result = await db("wallet").insert([
+        {
+          balance: 0,
+          user_id: insertedId,
+        },
+      ]);
+      const walletId = wallet_result[0];
+
+      const wallet = await db("wallet").where("id", walletId).first();
+
       // generate jwt token
       const jwt_token = await generateJwtToken(user);
 
       return {
         status: "success",
-        data: { jwt_token, user: user },
+        // data: { jwt_token, user: user, wallet: wallet },
         message: "account successfully created",
         code: 200,
       };

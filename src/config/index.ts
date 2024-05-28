@@ -15,4 +15,6 @@ export default {
 
   jwtSecret: process.env.JWT_SECRET,
   jwtAlgorithm: process.env.JWT_ALGO,
+  karmaUrl: process.env.KARMA_URL,
+  authToken: process.env.AUTH_TOKEN,
 };

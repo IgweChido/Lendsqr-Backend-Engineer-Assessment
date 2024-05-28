@@ -1,4 +1,4 @@
-const jwt = require("express-jwt");
+const { expressjwt: jwt } = require("express-jwt");
 import config from "../../config";
 
 const getTokenFromHeader = (req) => {
@@ -16,7 +16,7 @@ const getTokenFromHeader = (req) => {
 const isAuth = jwt({
   secret: config.jwtSecret,
   algorithms: [config.jwtAlgorithm],
-  userProperty: "token",
+  requestProperty: "token",
   getToken: getTokenFromHeader,
 });
 
