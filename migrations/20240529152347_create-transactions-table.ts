@@ -6,7 +6,7 @@ exports.up = function (knex) {
     table.string("status");
     table.integer("amount");
 
-    table.integer("transferred_to").unsigned().notNullable();
+    table.integer("transferred_to").unsigned().nullable();
     table
       .foreign("transferred_to")
       .references("id")
@@ -19,7 +19,7 @@ exports.up = function (knex) {
       .references("id")
       .inTable("wallet")
       .onDelete("CASCADE");
-    table.timestamps();
+    table.timestamps(true, true);
   });
 };
 

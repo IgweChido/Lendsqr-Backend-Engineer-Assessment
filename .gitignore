@@ -169,3 +169,6 @@ out
 knexfile.ts
 functions
 
+
+# Local Netlify folder
+.netlify
