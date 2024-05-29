@@ -5,6 +5,7 @@ const express = require("express");
 
 import loaders from "../src/loaders";
 import { db } from "../src/loaders/knex";
+import app from "./setup.spec";
 
 chai.use(chaiHttp);
 
@@ -16,9 +17,6 @@ describe("Auth controller", async () => {
     email: "test@example.com",
     password: "password123",
   };
-
-  const app = express();
-  await loaders({ expressApp: app });
 
   it("Create an account", function (done) {
     this.timeout(5000);

@@ -9,6 +9,7 @@ import { generateJwtToken } from "../src/utils/generateJwtToken";
 import config from "../src/config";
 import { db } from "../src/loaders/knex";
 import exp from "constants";
+import app from "./setup.spec";
 
 chai.use(chaiHttp);
 
@@ -18,9 +19,6 @@ describe("Transactions controller", async () => {
   const transactionDetails = {
     amount: 100,
   };
-
-  const app = express();
-  await loaders({ expressApp: app });
 
   it("Login to account", function (done) {
     chai
