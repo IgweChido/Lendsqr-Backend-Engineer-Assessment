@@ -1,9 +1,9 @@
 const dotenv = require("dotenv").config();
 
 const envfound = dotenv;
-if (envfound.error) {
-  throw new Error("⚠️  Couldn't find .env file  ⚠️");
-}
+// if (envfound.error) {
+//   throw new Error("⚠️  Couldn't find .env file  ⚠️");
+// }
 
 process.env.NODE_ENV = process.env.NODE_ENV || "development";
 export default {
