@@ -1,12 +1,14 @@
+import config from "./src/config";
+
 module.exports = {
   development: {
     client: "mysql2",
     connection: {
-      host: "mysql-23de8ff1-igwechiderax-132c.i.aivencloud.com",
-      port: 15200,
-      user: "avnadmin",
-      password: "AVNS_ASLzZp9oPSk__ZKjdAy",
-      database: "lendsqrAssesementDB",
+      host: config.databaseHost,
+      port: config.databasePort,
+      user: config.databaseUser,
+      password: config.databasePassword,
+      database: config.databaseName,
     },
     migrations: {
       directory: "./migrations",
