@@ -71,6 +71,8 @@ Authentication: Bearer Token
 
 ## 5. Database Schema
 
+![alt text](https://github.com/IgweChido/Lendsqr-Backend-Engineer-Assessment/blob/main/assets/er-diagram.png?raw=true)
+
 ## 6. Authentication and Authorization
 
 JWT (JSON Web Token): Used for securing endpoints.
@@ -103,4 +105,5 @@ Custom error classes to handle different error types.
 
 ## 10. Testing
 
-Use tools like Postman to test the API endpoints.
+Used tools like Postman to test the API endpoints.
+Implemented unit and integration tests using frameworks like Mocha and Chai .
