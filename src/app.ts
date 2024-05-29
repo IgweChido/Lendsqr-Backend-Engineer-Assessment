@@ -1,7 +1,7 @@
 import config from "./config";
 const express = require("express");
 
-async function startServer() {
+export async function startServer() {
   // declare express
   const app = express();
 

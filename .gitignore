@@ -84,6 +84,7 @@ web_modules/
 .env.test.local
 .env.production.local
 .env.local
+.env.test
 
 # parcel-bundler cache (https://parceljs.org/)
 .cache
@@ -167,3 +168,4 @@ out
 # End of https://www.toptal.com/developers/gitignore/api/node,visualstudiocode
 knexfile.ts
 functions
+
