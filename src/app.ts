@@ -1,5 +1,5 @@
-// import config from "./config";
-const config = require("./config");
+import config from "./config";
+// const config = require("./config");
 const express = require("express");
 
 async function startServer() {

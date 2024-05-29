@@ -6,7 +6,7 @@ if (envfound.error) {
 }
 
 process.env.NODE_ENV = process.env.NODE_ENV || "development";
-module.exports = {
+export default {
   port: parseInt(process.env.PORT, 10),
 
   databasePort: parseInt(process.env.DB_PORT, 10),

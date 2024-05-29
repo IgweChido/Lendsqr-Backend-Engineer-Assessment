@@ -2,13 +2,18 @@
   "compilerOptions": {
     "module": "commonjs",
     "esModuleInterop": true,
-    "target": "es6",
+    "lib": ["es2017", "esnext.asynciterable"],
+    "allowSyntheticDefaultImports": true,
+    // "target": "es6",
     "moduleResolution": "node",
     "sourceMap": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "outDir": "dist",
-
+    "allowJs": true,
+    "noEmit": false,
+    "resolveJsonModule": true,
+    "target": "es2017",
     "paths": {
       "../../*": ["./src/*"]
     }
