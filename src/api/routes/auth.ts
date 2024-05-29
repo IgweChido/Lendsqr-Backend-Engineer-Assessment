@@ -42,13 +42,13 @@ export default (app: Router) => {
   );
 
   route.get(
-    "/get-user/:id",
+    "/get-user/",
 
     async (req: Request, res: Response, next: NextFunction) => {
       try {
         const id = req.params.id;
         const authController = new AuthController();
-        const get_user = await authController.getUser(id);
+        const get_user = await authController.getUser();
         res.status(200).json(get_user);
       } catch (err) {
         return next(err);

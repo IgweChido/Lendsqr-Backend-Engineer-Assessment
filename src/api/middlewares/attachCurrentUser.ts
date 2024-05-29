@@ -2,7 +2,6 @@ import { db } from "../../loaders/knex";
 
 const attachCurrentUser = async (req, res, next) => {
   try {
-    console.log(req.token);
     // check whether user exists with email
     const userRecord = await db("users")
       .where({

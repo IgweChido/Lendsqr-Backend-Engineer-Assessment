@@ -23,7 +23,7 @@ export default class AuthController {
           console.error("Error:", error?.response?.data);
         });
 
-      console.log("karma", karma);
+      // console.log("karma", karma);
 
       if (karma) {
         throw new Error("User cannot be Onboarded");
@@ -46,7 +46,7 @@ export default class AuthController {
       const insertedId = result[0];
 
       const user = await db("users").where("id", insertedId).first();
-      console.log("Inserted user:", user);
+      // console.log("Inserted user:", user);
 
       // add wallet information for the user
       const wallet_result = await db("wallet").insert([
@@ -80,7 +80,7 @@ export default class AuthController {
         .where("email", login_details.email)
         .first();
 
-      console.log("user", userExists);
+      // console.log("user", userExists);
 
       if (!userExists) {
         throw new Error("Invalid Email");
@@ -102,7 +102,7 @@ export default class AuthController {
       return {
         status: "success",
         data: { jwt_token, user: userExists },
-        message: "user login successfully created",
+        message: "user login successfull",
         code: 200,
       };
     } catch (e) {
@@ -110,7 +110,8 @@ export default class AuthController {
     }
   }
 
-  public async getUser(user_id) {
+  // to test my hoster app
+  public async getUser() {
     try {
       // check whether user exists with email
       const userExists = {
