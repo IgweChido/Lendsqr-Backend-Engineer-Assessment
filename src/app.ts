@@ -2,7 +2,7 @@
 const config = require("./config");
 const express = require("express");
 
-export async function startServer() {
+async function startServer() {
   // declare express
   const app = express();
 
